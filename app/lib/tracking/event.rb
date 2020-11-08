@@ -1,4 +1,4 @@
-class Tracking::Response::Events
+class Tracking::Event
 	
 	attr_accessor :timestamp, :description
 
@@ -6,8 +6,12 @@ class Tracking::Response::Events
 	# param [String] params -> a hash containing the date and time of the event
 	def initialize(params)
 		params.transform_keys!(&:to_sym)
-		@timestamp = params[:timestamp]
-		@description = params[:description]
+		@timestamp = DateTime.parse params[:timestamp]
+		unless params[:status_exception_description].blank?
+			@description = params[:status_exception_description]
+		else
+			@description = params[:event_description]
+		end
 	end
 
 end
