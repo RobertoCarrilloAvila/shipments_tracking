@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_020916) do
     t.string "tracking_number", null: false
     t.string "carrier", null: false
     t.integer "status", default: 0, null: false
-    t.string "description", null: false
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
