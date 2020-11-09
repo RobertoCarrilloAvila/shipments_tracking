@@ -12,7 +12,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1.json
   def show
     @shipment.call_tracking_job unless @shipment.exist_in_queue?
-    render json: @shipment
+    render json: @shipment, include: :events
   end
 
   # POST /shipments
