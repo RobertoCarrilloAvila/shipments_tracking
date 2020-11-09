@@ -14,7 +14,11 @@ class Shipment < ApplicationRecord
 	# Callbacks
 	after_create :call_tracking_job
 
-	private
+	def exist_in_queue?
+		queue = Sidekiq::ScheduledSet.new
+		jobs = queue.select{ |job| job.display_args.first == self.id }
+		jobs.any?
+	end
 
 	def call_tracking_job
 		TrackingJob.set(wait: 10.minutes).perform_later(self.id)
