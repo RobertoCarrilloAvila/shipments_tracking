@@ -1,6 +1,11 @@
 class Shipment < ApplicationRecord
 
 	STATUSES = [:CREATED, :ON_TRANSIT, :DELIVERED, :EXCEPTION]
+
+	# Associations
+	has_many :events
+
+	# Enums
 	enum status: STATUSES
 
 	# Validates

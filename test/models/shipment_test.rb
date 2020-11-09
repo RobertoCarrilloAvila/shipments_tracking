@@ -9,7 +9,7 @@ class ShipmentTest < ActiveSupport::TestCase
   test 'empty Shipment fields' do
   	shipment = Shipment.new
   	shipment.valid?
-  	assert shipment.errors.messages.keys == [:tracking_number, :carrier, :status, :description]
+  	assert shipment.errors.messages.keys == [:tracking_number, :carrier, :description]
   end
 
   test 'not empty Shipment fields' do
