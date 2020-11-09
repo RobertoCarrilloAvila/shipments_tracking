@@ -1,24 +1,42 @@
-# README
+# Shipping Tracking
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This platform is and api to track multiple shipments in multiple carries
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+### Requirements
 
-* System dependencies
+* [Ruby] - 2.7.1
+* [Rails] - 6.0.3.4
+* [Redis] - 4.0.9
 
-* Configuration
+### Instructions
 
-* Database creation
+To get start with the app, clone the repo
 
-* Database initialization
+```
+$ git clone [repo-url]
+```
 
-* How to run the test suite
+Install the needed gems
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bundle install
+```
 
-* Deployment instructions
+Next, create the local database, and load the structure of the database
 
-* ...
+```
+$ rails db:setup
+```
+
+you’ll be ready to run the app in a local server (You may have to change the port if you are running more than 2 applications.)
+
+```
+$ rails server
+```
+
+finally run the sidekiq server
+```
+$ bundle exec sidekiq
+```
