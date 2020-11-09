@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking_number: 449044304137821
+  carrier: FEDEX
+  status: 0
+  description: MyString
+
+two:
+  tracking_number: 149331877648230
+  carrier: FEDEX
+  status: 1
+  description: MyString
